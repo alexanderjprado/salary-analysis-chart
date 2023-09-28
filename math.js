@@ -1,4 +1,4 @@
-export class Math {
+export class TendencyMath {
     static getAverage(list) {
         let sumNumbers = 0;
 
@@ -15,7 +15,22 @@ export class Math {
 
     static isEven = (list) => !(list.length % 2);
 
-    static calculareMedian(unorderedList) {
+    static sortList(unorderedList) {
+        const SORTED_LIST = unorderedList.sort((a, b) => a - b);
+
+        return SORTED_LIST;
+    }
+
+    static sortListBidimensional(unorderedList, i) {
+        let sortedList = [];
+
+        if (i === 1)
+            sortedList = unorderedList.sort((a, b) => b[i] - a[i]);
+
+        return sortedList;
+    }
+
+    static calculateMedian(unorderedList) {
         const SORTED_LIST = this.sortList(unorderedList);
         const IS_ODD = this.isOdd(SORTED_LIST);
         const IS_EVEN = this.isEven(SORTED_LIST);
@@ -36,21 +51,6 @@ export class Math {
         }
 
         return median;
-    }
-
-    static sortList(unorderedList) {
-        const SORTED_LIST = unorderedList.sort((a, b) => a - b);
-
-        return SORTED_LIST;
-    }
-
-    static sortListBidimensional(unorderedList, i) {
-        let sortedList = [];
-
-        if (i === 1)
-            sortedList = unorderedList.sort((a, b) => b[i] - a[i]);
-
-        return sortedList;
     }
 
     static calculateMode(list) {
